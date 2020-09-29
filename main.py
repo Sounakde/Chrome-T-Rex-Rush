@@ -40,7 +40,7 @@ def load_image(
     if colorkey is not None:
         if colorkey is -1:
             colorkey = image.get_at((0, 0))
-        image.set_colorkey(colorkey, RLEACCEL)
+        image.set_colorkey(colorkey, GREEN)
 
     if sizex != -1 or sizey != -1:
         image = pygame.transform.scale(image, (sizex, sizey))
@@ -76,7 +76,7 @@ def load_sprite_sheet(
             if colorkey is not None:
                 if colorkey is -1:
                     colorkey = image.get_at((0,0))
-                image.set_colorkey(colorkey,RLEACCEL)
+                image.set_colorkey(colorkey,GREEN)
 
             if scalex != -1 or scaley != -1:
                 image = pygame.transform.scale(image,(scalex,scaley))
@@ -104,10 +104,10 @@ def extractDigits(number):
         digits = []
         i = 0
         while(number/10 != 0):
-            digits.append(number%10)
+            digits.append(number)
             number = int(number/10)
 
-        digits.append(number%10)
+        digits.append(number)
         for i in range(len(digits),5):
             digits.append(0)
         digits.reverse()
